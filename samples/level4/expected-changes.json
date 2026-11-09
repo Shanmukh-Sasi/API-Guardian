@@ -1,0 +1,128 @@
+[
+  {
+    "changeType": "ENDPOINT_REMOVED",
+    "path": "/health",
+    "method": null,
+    "element": null,
+    "oldValue": "/health",
+    "newValue": null,
+    "breaking": true
+  },
+  {
+    "changeType": "HTTP_METHOD_ADDED",
+    "path": "/payments",
+    "method": "DELETE",
+    "element": null,
+    "oldValue": null,
+    "newValue": "DELETE",
+    "breaking": false
+  },
+  {
+    "changeType": "REQUEST_PARAMETER_REMOVED",
+    "path": "/payments",
+    "method": "GET",
+    "element": "limit (query)",
+    "oldValue": "integer",
+    "newValue": null,
+    "breaking": false
+  },
+  {
+    "changeType": "REQUEST_PARAMETER_ADDED",
+    "path": "/payments",
+    "method": "GET",
+    "element": "pageSize (query)",
+    "oldValue": null,
+    "newValue": "integer",
+    "breaking": false
+  },
+  {
+    "changeType": "REQUEST_PARAMETER_TYPE_CHANGED",
+    "path": "/payments",
+    "method": "GET",
+    "element": "status (query)",
+    "oldValue": "string",
+    "newValue": "integer",
+    "breaking": true
+  },
+  {
+    "changeType": "REQUEST_PARAMETER_TYPE_CHANGED",
+    "path": "/payments/{paymentId}",
+    "method": "GET",
+    "element": "paymentId (path)",
+    "oldValue": "string",
+    "newValue": "integer",
+    "breaking": true
+  },
+  {
+    "changeType": "ENDPOINT_ADDED",
+    "path": "/refunds",
+    "method": null,
+    "element": null,
+    "oldValue": null,
+    "newValue": "/refunds",
+    "breaking": false
+  },
+  {
+    "changeType": "RESPONSE_FIELD_TYPE_CHANGED",
+    "path": "/payments",
+    "method": "GET",
+    "element": "response[200 application/json].amount",
+    "oldValue": "number",
+    "newValue": "string",
+    "breaking": true
+  },
+  {
+    "changeType": "RESPONSE_FIELD_ADDED",
+    "path": "/payments",
+    "method": "GET",
+    "element": "response[200 application/json].currency",
+    "oldValue": null,
+    "newValue": "string",
+    "breaking": false
+  },
+  {
+    "changeType": "RESPONSE_FIELD_REMOVED",
+    "path": "/payments",
+    "method": "GET",
+    "element": "response[200 application/json].status",
+    "oldValue": "string",
+    "newValue": null,
+    "breaking": true
+  },
+  {
+    "changeType": "REQUEST_FIELD_TYPE_CHANGED",
+    "path": "/payments",
+    "method": "POST",
+    "element": "requestBody[request application/json].amount",
+    "oldValue": "number",
+    "newValue": "string",
+    "breaking": true
+  },
+  {
+    "changeType": "REQUEST_FIELD_ADDED",
+    "path": "/payments",
+    "method": "POST",
+    "element": "requestBody[request application/json].merchantId",
+    "oldValue": null,
+    "newValue": "string",
+    "breaking": true
+  },
+  {
+    "changeType": "REQUEST_FIELD_REMOVED",
+    "path": "/payments",
+    "method": "POST",
+    "element": "requestBody[request application/json].note",
+    "oldValue": "string",
+    "newValue": null,
+    "breaking": true
+  },
+  {
+    "changeType": "RESPONSE_FIELD_ADDED",
+    "path": "/payments",
+    "method": "POST",
+    "element": "response[201 application/json].receiptUrl",
+    "oldValue": null,
+    "newValue": "string",
+    "breaking": false
+  }
+]

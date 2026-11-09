@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: Payments API
+  version: 2.0.0
+paths:
+  /payments:
+    get:
+      parameters:
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Payments returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  amount:
+                    type: string
+                  currency:
+                    type: string
+                  paymentId:
+                    type: string
+    delete:
+      responses:
+        '204':
+          description: Payments removed
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount, currency, merchantId]
+              properties:
+                amount:
+                  type: string
+                currency:
+                  type: string
+                merchantId:
+                  type: string
+      responses:
+        '201':
+          description: Payment created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+                  receiptUrl:
+                    type: string
+  /payments/{paymentId}:
+    parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      responses:
+        '200':
+          description: Payment returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  amount:
+                    type: number
+                  paymentId:
+                    type: string
+                  status:
+                    type: string
+  /refunds:
+    post:
+      responses:
+        '201':
+          description: Refund created
